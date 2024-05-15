@@ -1,7 +1,6 @@
-// src/Waveform.tsx
-import { useRef } from 'react';
+import { useRef, FC } from 'react';
 
-const Waveform: React.FC = () => {
+const Waveform: FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   const handleAudioUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
