@@ -4,6 +4,7 @@ import eslint from '@eslint/js';
 import tseslint from 'typescript-eslint';
 import reactRefreshPlugin from 'eslint-plugin-react-refresh';
 import reactHooksPlugin from 'eslint-plugin-react-hooks';
+import { fixupPluginRules } from '@eslint/compat';
 
 export default [
   eslint.configs.recommended,
@@ -19,9 +20,12 @@ export default [
       parser: typescriptParser,
     },
     ignores: ['dist'],
-    plugins: { 'react-refresh': reactRefreshPlugin, 'react-hooks': reactHooksPlugin },
+    plugins: {
+      'react-refresh': reactRefreshPlugin,
+      'react-hooks': fixupPluginRules(reactHooksPlugin),
+    },
     rules: {
-      // 'react-hooks/exhaustive-deps': 'error',
+      'react-hooks/exhaustive-deps': 'error',
       'react-hooks/rules-of-hooks': 'error',
       'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
       'no-console': 'error',

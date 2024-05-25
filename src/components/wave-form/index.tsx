@@ -15,9 +15,9 @@ const Waveform: FC = () => {
       const audioData = onLoadEvent.target.result as ArrayBuffer;
 
       audioContext.decodeAudioData(audioData, (buffer) => {
-        const rawData = buffer.getChannelData(0); // Get channel data from the first channel
-        const samples = 1000; // Number of samples you want for the waveform
-        const blockSize = Math.floor(rawData.length / samples); // Block size to average
+        const rawData = buffer.getChannelData(0);
+        const samples = 1000;
+        const blockSize = Math.floor(rawData.length / samples);
         const waveform = [];
 
         for (let i = 0; i < samples; i++) {
