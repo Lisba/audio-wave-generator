@@ -5,5 +5,6 @@
   "singleQuote": true,
   "jsxSingleQuote": true,
   "arrowParens": "always",
-  "trailingComma": "es5"
+  "trailingComma": "es5",
+  "plugins": ["prettier-plugin-unused-imports-configurable"]
 }
